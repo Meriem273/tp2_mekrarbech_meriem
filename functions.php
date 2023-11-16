@@ -23,9 +23,9 @@ function validateStreet($street)
 
 
 //fonction de validation du nombre de la rue
-function validateStreetNumber($streetNumber)
+function validateStreetNumber($street_nb)
 {
-    if (is_numeric($streetNumber)) {
+    if (is_numeric($street_nb)) {
         return true;
     } else {
         echo "entrez un nombre de rue valide";
