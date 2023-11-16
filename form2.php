@@ -22,44 +22,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <?php
                 for ($i = 1; $i <= $num_addresses; $i++) {
                 ?>
-                    <?php
-                    if (validateStreet($street) === true || validateStreetNumber($street_nb) === true || validateType($type) === true || validateCity($city) === true || validateZipcode($zipcode) === true) { ?>
+                    <div class="address">
+                        <label for="street<?= $i ?>">Nom de la rue:</label>
+                        <input type="text" id="street<?= $i ?>" name="street<?= $i ?>" required>
 
-                        <div class="address">
-                            <label for="street<?= $i ?>">Nom de la rue:</label>
-                            <input type="text" id="street<?= $i ?>" name="street<?= $i ?>" required>
+                        <label for="street_nb<?= $i ?>">Numero de la rue:</label>
+                        <input type="text" id="street_nb<?= $i ?>" name="street_nb<?= $i ?>" required>
 
-                            <label for="street_nb<?= $i ?>">Numero de la rue:</label>
-                            <input type="text" id="street_nb<?= $i ?>" name="street_nb<?= $i ?>" required>
+                        <label for="type<?= $i ?>">Type d'adresse:</label>
+                        <select id="type<?= $i ?>" name="type<?= $i ?>">
+                            <option value="livraison">Livraison</option>
+                            <option value="facturation">Facturation</option>
+                            <option value="domicile">Domicile</option>
+                            <option value="travail">Travail</option>
+                            <option value="autre">Autre</option>
+                        </select>
 
-                            <label for="type<?= $i ?>">Type d'adresse:</label>
-                            <select id="type<?= $i ?>" name="type<?= $i ?>">
-                                <option value="livraison">Livraison</option>
-                                <option value="facturation">Facturation</option>
-                                <option value="domicile">Domicile</option>
-                                <option value="travail">Travail</option>
-                                <option value="autre">Autre</option>
-                            </select>
+                        <label for="city<?= $i ?>">Ville:</label>
+                        <input type="text" id="city<?= $i ?>" name="city<?= $i ?>" required>
 
-                            <label for="city<?= $i ?>">Ville:</label>
-                            <input type="text" id="city<?= $i ?>" name="city<?= $i ?>" required>
-
-                            <label for="zipcode<?= $i ?>">Code postal:</label>
-                            <input type="text" id="zipcode<?= $i ?>" name="zipcode<?= $i ?>" required>
-                        </div>
-                    <?php
-                    }
-                    ?>
-                    <button type="submit">Confirmer</button>
+                        <label for="zipcode<?= $i ?>">Code postal:</label>
+                        <input type="text" id="zipcode<?= $i ?>" name="zipcode<?= $i ?>" required>
+                    </div>
+                <?php
+                }
+                ?>
+                <button type="submit">Confirmer</button>
             </form>
         <?php
-                }
+    }
         ?>
     <?php
-    } ?>
-<?php
-}
-?>
+} ?>
         </body>
 
         </html>

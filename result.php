@@ -6,9 +6,11 @@
     <title>Resultat</title>
     <link rel="stylesheet" href="style2.css">
 </head>
+<?php
+    require_once("functions.php");
+?>
 <body>
 <?php
-require_once 'functions.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupérer le nombre d'adresses de la première page
     $num_addresses = $_POST["num_addresses"];
@@ -16,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <form method="post" action="processus.php">
     <?php
     // Afficher les champs d'adresse en fonction du nombre entré par l'utilisateur
-    for ($i = 1; $i <= $numAddresses; $i++) {
+    for ($i = 1; $i <= $num_addresses; $i++) {
         echo "<h3>Adresse $i</h3>";
         echo "<label for='street_$i'>Rue:</label>";
         echo "<input type='text' id='street_$i' name='street_$i' required>";
@@ -28,7 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Ajoutez d'autres champs d'adresse ici
     }
     ?>
-    <input type="submit" value="Confirmer">
+    <button type="submit" name="submit">Confirmer</button>
+    <button type="modifier" name="modifier">Modifier</button>
+
 </form>
 <?php
 } else {
