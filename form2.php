@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
         </head>
 
         <body>
-            <form action="result.php" method="post">
+            <form action="traitementBdd.php" method="post">
                 <!--repetition des adresses par rapport au nombre entré par l'utilisateur -->
                 <?php
                 for ($i = 1; $i <= $num_addresses; $i++) {

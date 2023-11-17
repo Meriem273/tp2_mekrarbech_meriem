@@ -64,27 +64,3 @@ function validateZipCode($zip)
         echo "entrez un zip valide moins de 6 caractères svp";
     }
 }
-
-
-//fonction de validation des données
-function Enregistrement($db, $street, $street_nb, $type, $city, $zipcode)
-{
-
-    if (!validateStreet($street) || !validateStreetNumber($street_nb) || !validateType($type) || !validateCity($city) || !validateZipcode($zipcode)) {
-        return false;
-    }
-
-    // Insertion dans la table
-    $stmt = $db->prepare("INSERT INTO address (street, street_nb, type, city, zipcode) VALUES (?, ?, ?, ?, ?)");
-
-
-    $stmt->bind_param("sisss", $street, $street_nb, $type, $city, $zipcode);
-
-    // Exécution de la requête
-    $result = $stmt->execute();
-
-    // Fermer le statement
-    $stmt->close();
-
-    return $result;
-}
