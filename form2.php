@@ -2,7 +2,7 @@
 require_once("functions.php");
 ?>
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST['submit'])) {
     $num_addresses = $_POST["num_addresses"];
     //si le nombre est valide on entame le processus d'entrée des adresses
     if (validateNumber($num_addresses) === true) { ?>
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <?php
                 }
                 ?>
-                <button type="submit">Confirmer</button>
+                <button type="submit" name="submit">Confirmer</button>
             </form>
         <?php
     }
